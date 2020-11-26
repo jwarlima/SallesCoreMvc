@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SallesCoreMvc.Models;
+using SallesCoreMvc.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
