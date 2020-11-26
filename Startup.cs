@@ -37,7 +37,8 @@ namespace SallesCoreMvc
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<SallesCoreMvcContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SallesCoreMvcContext")));
+                    options.UseMySql(Configuration.GetConnectionString("SallesCoreMvcContext"), 
+                    builder => builder.MigrationsAssembly("SallesCoreMvc")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
