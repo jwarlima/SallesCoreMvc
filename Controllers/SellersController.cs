@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SallesCoreMvc.Models;
 using SallesCoreMvc.Services;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,19 @@ namespace SallesCoreMvc.Controllers
             //Chama o metodo findAll do seller service e guarda em uma lista
             var list = _sellerService.FindAll();
             return View(list);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Seller seller)
+        {
+            _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

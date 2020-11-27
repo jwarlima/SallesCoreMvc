@@ -21,5 +21,11 @@ namespace SallesCoreMvc.Services
             //Acessa a tabela de Vendedores e retorna os dados convertidos para lista
             return _context.Seller.ToList();
         }
+
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }
