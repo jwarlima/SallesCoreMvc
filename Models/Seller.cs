@@ -8,8 +8,12 @@ namespace SallesCoreMvc.Models
     public class Seller
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "{0} obrigatório.")]
+        [StringLength(60,MinimumLength =3, ErrorMessage = "O nome deve conter entre 3 e 60 caracteres.")]
         public string Name { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} obrigatório.")]
+        [EmailAddress(ErrorMessage = "Digite um email válido.")]
         public string Email { get; set; }
         [Display(Name = "Birth Date")]
         [DataType(DataType.Date)]
@@ -17,6 +21,8 @@ namespace SallesCoreMvc.Models
         public DateTime BirthDate { get; set; }
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
+        [Required(ErrorMessage = "{0} obrigatório.")]
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be from {1} to {2}")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
